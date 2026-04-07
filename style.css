@@ -6,9 +6,8 @@
 .carousel-item {
     height: 100vh;
     min-height: 500px;
-    background-size: cover;          /* Obliga a la imagen a llenar todo el espacio */
-    background-position: center;     /* Centra la imagen (clave para el móvil) */
-    background-repeat: no-repeat;    /* Evita que la imagen se duplique */
+    background-repeat: no-repeat;
+    background-size: cover !important; /* El !important asegura que mande el estilo */
 }
 
 /* Ajuste para que el texto no se pegue a los bordes en móviles pequeños */
