@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TripleEme | Webs de Boda Asequibles</title>
+    <title>TripleEme | Tu Web de Boda Ideal y Asequible</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -18,19 +18,30 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: var(--dark-text);
+            scroll-behavior: smooth;
         }
 
-        /* Hero Section */
-        .hero-overlay {
-            background: rgba(0, 0, 0, 0.6);
+        /* Hero Carousel */
+        .carousel-item {
+            height: 100vh;
+            min-height: 500px;
+            background: no-repeat center center cover;
+        }
+        .carousel-overlay {
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1;
+        }
+        .carousel-caption {
+            z-index: 2;
+            bottom: 20%;
         }
 
         /* Botón Hero Principal */
         .btn-custom {
-            padding: 1rem 2rem;
+            padding: 1rem 2.5rem;
             font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
             font-weight: 700;
             color: #000;
             background-color: #fff;
@@ -48,25 +59,33 @@
             box-shadow: 0px 12px 20px rgba(212, 163, 115, 0.4);
         }
 
-        /* Estilos de Contenido "Wedding" */
-        .wedding-services h2, .cta-section h3 {
-            color: var(--wedding-gold);
+        /* Estilos de Contenido */
+        h2.section-title {
+            color: var(--dark-text);
             font-family: 'Georgia', serif;
-            margin-top: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--wedding-gold);
+            margin: 10px auto 0;
         }
 
         .services-list {
             list-style: none;
             padding: 0;
-            margin-top: 1.5rem;
         }
-
         .services-list li {
             margin-bottom: 1rem;
             padding-left: 30px;
             position: relative;
         }
-
         .services-list li::before {
             content: '✦';
             position: absolute;
@@ -85,11 +104,25 @@
             margin-bottom: 1rem;
         }
 
+        /* Tarjetas de Demo y Precios */
+        .card-demo, .card-price {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+        .card-demo:hover, .card-price:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .img-demo {
+            height: 250px;
+            object-fit: cover;
+        }
+
         /* Botón de Acción Final */
         .btn-contacto-main {
             display: inline-block;
-            margin-top: 15px;
-            padding: 12px 25px;
+            padding: 12px 30px;
             background-color: var(--dark-text);
             color: #fff !important;
             text-decoration: none;
@@ -124,13 +157,6 @@
             transform: scale(1.1);
             background-color: #128c7e;
         }
-
-        /* Ajustes de Imagen */
-        .img-featured {
-            height: 400px;
-            object-fit: cover;
-            width: 100%;
-        }
     </style>
 </head>
 <body>
@@ -145,8 +171,9 @@
                 <div class="collapse navbar-collapse" id="navPrincipal">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#pide-tu-web">Pide tu web</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#sobre-nosotros">Qué Incluye</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#demos">Demos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#precios">Precios</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
@@ -154,30 +181,43 @@
         </nav>
     </header>
 
-    <main class="position-relative vh-100 d-flex align-items-center justify-content-center text-center overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop" 
-             class="position-absolute w-100 h-100 object-fit-cover top-0 start-0" alt="Boda elegante">
-        <div class="position-absolute w-100 h-100 hero-overlay top-0 start-0"></div>
-
-        <div class="container position-relative text-white">
-            <h1 class="display-2 fw-bold">Tu Boda en la Red</h1>
-            <p class="fs-4">Diseño web elegante, funcional y, sobre todo, asequible.</p>
-            <a href="#sobre-mi" class="btn-custom mt-4">Descubrir más</a>
+    <main id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner position-relative">
+            <div class="position-absolute w-100 h-100 carousel-overlay top-0 start-0"></div>
+            
+            <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop');">
+            </div>
+            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop');">
+            </div>
+            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop');">
+            </div>
         </div>
+        
+        <div class="carousel-caption text-center text-white">
+            <div class="container">
+                <h1 class="display-1 fw-bold">Tu Boda en la Red</h1>
+                <p class="fs-3 fw-light">Diseño web elegante, funcional y a precio real.</p>
+                <a href="#sobre-nosotros" class="btn-custom mt-4">Descubrir más</a>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev" style="z-index: 10;">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next" style="z-index: 10;">
+            <span class="carousel-control-next-icon"></span>
+        </button>
     </main>
 
-    <section id="sobre-mi" class="py-5">
+    <section id="sobre-nosotros" class="py-5 bg-white">
         <div class="container py-md-5">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1000&auto=format&fit=crop" class="img-fluid rounded shadow-lg img-featured" alt="Diseño web">
-                </div>
                 <div class="col-lg-6 ps-lg-5">
-                    <div class="wedding-services">
-                        <h2 class="display-6 mb-3">Estética y utilidad</h2>
+                    <div class="wedding-services text-center text-lg-start">
+                        <h2 class="section-title">Estética y utilidad</h2>
                         <p class="lead">No solo diseñamos una invitación online; construimos el <strong>centro de operaciones</strong> de su gran día.</p>
                         
-                        <ul class="services-list">
+                        <ul class="services-list text-start d-inline-block d-lg-block">
                             <li><strong>Información Clave:</strong> Mapas, horarios y códigos de vestimenta.</li>
                             <li><strong>Gestión de Confirmaciones:</strong> Recepción de asistencia en tiempo real.</li>
                             <li><strong>Logística:</strong> Recomendaciones de alojamiento y transporte.</li>
@@ -185,35 +225,75 @@
                         </ul>
                     </div>
                 </div>
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1000&auto=format&fit=crop" class="img-fluid rounded shadow-lg" alt="Diseño web">
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="pide-tu-web" class="py-5" style="background-color: var(--wedding-cream);">
-        <div class="container py-md-5">
-            <div class="row align-items-center flex-lg-row-reverse">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" class="img-fluid rounded shadow-lg img-featured" alt="Web responsive">
+    <section id="demos" class="py-5" style="background-color: var(--wedding-cream);">
+        <div class="container py-md-5 text-center">
+            <h2 class="section-title">Explora Nuestros Diseños</h2>
+            <p class="lead mb-5">Haz clic para ver cómo podría ser tu web.</p>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card card-demo h-100">
+                        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=600&auto=format&fit=crop" class="card-img-top img-demo" alt="Demo Clásica">
+                        <div class="card-body">
+                            <h5 class="card-title FW-BOLD">Estilo Clásico</h5>
+                            <a href="#" class="btn btn-outline-dark btn-sm mt-2">Ver Demo</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-6 pe-lg-5 text-center text-lg-start">
-                    <span class="price-badge">Propuesta de valor</span>
-                    <h2 class="display-6 mb-3" style="font-family: 'Georgia', serif; font-style: italic;">Calidad a precio real</h2>
-                    <p>Nuestra misión es sencilla: <strong>eliminar el sobrecoste innecesario</strong>. Ofrecemos diseños modernos, adaptables a móviles y totalmente funcionales por una fracción de lo que cobran las agencias tradicionales.</p>
-                    <p>Porque lo importante es que disfruten el camino al altar, nosotros nos encargamos de la tecnología.</p>
-
-                    <div class="cta-section mt-4">
-                        <h3>¿Listos para empezar?</h3>
-                        <p>Hagamos que su historia de amor brille en la red.</p>
-                        <a href="https://wa.me/34643917030" class="btn-contacto-main">¡SOLICITAR PRESUPUESTO!</a>
+                <<div class="col-md-4">
+    <div class="card card-demo h-100">
+        <img src="https://images.pexels.com/photos/313707/pexels-photo-313707.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top img-demo" alt="Demo Moderna">
+        <div class="card-body text-center">
+            <h5 class="card-title fw-bold">Estilo Moderno</h5>
+            <a href="#" class="btn btn-outline-dark btn-sm mt-2">Ver Demo</a>
+        </div>
+    </div>
+</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <section id="precios" class="py-5 bg-white">
+        <div class="container py-md-5 text-center">
+            <h2 class="section-title">Precios Transparentes</h2>
+            <p class="lead mb-5">Nuestra misión es sencilla: eliminar el sobrecoste innecesario.</p>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-5 col-lg-4">
+                    <div class="card card-price h-100 p-4">
+                        <div class="card-body">
+                            <span class="price-badge">Más Popular</span>
+                            <h3 class="fw-bold">Web Esencial</h3>
+                            <p class="text-muted">Todo lo necesario para tus invitados.</p>
+                            <div class="display-4 fw-bold my-4">XX€</div>
+                            <ul class="text-start list-unstyled fs-6 mb-4">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Diseño Responsive (Móvil)</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Información del Evento</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Confirmación RSVP</li>
+                                <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Galería de Fotos</li>
+                            </ul>
+                            <a href="#contacto" class="btn btn-dark w-100">Elegir Este</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-5">Hagamos que su historia de amor brille en la red de forma clara, bonita y asequible.</p>
+            <div class="cta-section mt-4">
+                <a href="https://wa.me/34643917030" class="btn-contacto-main">¡SOLICITAR PRESUPUESTO!</a>
+            </div>
+        </div>
+    </section>
+
     <footer id="contacto" class="bg-dark text-white py-5 text-center">
         <div class="container">
-            <p class="mb-4">&copy; 2026 <strong>TripleEme</strong> - FullStack Developer</p>
+            <p class="mb-4">&copy; 2026 <strong>TripleEme</strong> - Tu Web de Boda</p>
             <div class="row justify-content-center">
                 <div class="col-md-4 mb-3">
                     <a href="mailto:hola@tripleeme.es" class="text-white text-decoration-none">
