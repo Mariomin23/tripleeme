@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TripleEme</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="#">Bienvenido a TripleEme</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navPrincipal"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navPrincipal">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Inicio</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#">Sobre mi</a></li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contacto</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="position-relative vh-100 overflow-hidden">
+      <img
+        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
+        class="position-absolute w-100 h-100 object-fit-cover"
+        alt="Fondo"
+      />
+
+      <div class="position-absolute w-100 h-100 bg-dark opacity-50"></div>
+
+      <div
+        class="position-relative h-100 d-flex align-items-center justify-content-center text-center text-white"
+      >
+        <div class="container">
+          <h1 class="display-1 fw-bold">Mario Minuesa</h1>
+          <p class="fs-4">FullStack Developer</p>
+
+          <button
+            style="
+              padding: 1.3em 3em;
+              font-size: 12px;
+              text-transform: uppercase;
+              letter-spacing: 2.5px;
+              font-weight: 500;
+              color: #000;
+              background-color: #fff;
+              border: none;
+              border-radius: 45px;
+              box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+              transition: all 0.3s ease 0s;
+              cursor: pointer;
+              outline: none;
+            "
+            onmouseover="
+              this.style.backgroundColor = '#23c483';
+              this.style.boxShadow = '0px 15px 20px rgba(46, 229, 157, 0.4)';
+              this.style.color = '#fff';
+              this.style.transform = 'translateY(-7px)';
+            "
+            onmouseout="
+              this.style.backgroundColor = '#fff';
+              this.style.boxShadow = '0px 8px 15px rgba(0, 0, 0, 0.1)';
+              this.style.color = '#000';
+              this.style.transform = 'translateY(0px)';
+            "
+            onmousedown="this.style.transform = 'translateY(-1px)'"
+            class="mt-4"
+          >
+            click here!
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="row align-items-center mb-5">
+          <div class="col-md-6">
+            <img
+              src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1000&auto=format&fit=crop"
+              class="img-fluid rounded shadow"
+              alt="Sobre mi"
+            />
+          </div>
+          <div class="col-md-6 mt-4 mt-md-0">
+            <h2 class="fw-bold border-bottom pb-2">Sobre mi</h2>
+            <p class="text-muted mt-3">
+              Soy un apasionado del desarrollo web que está explorando las
+              infinitas posibilidades de Bootstrap. Mi objetivo es crear sitios
+              que no solo se vean bien, sino que ofrezcan una experiencia de
+              usuario fluida y profesional.
+            </p>
+          </div>
+        </div>
+
+        <div class="row align-items-center flex-row-reverse mb-5">
+          <div class="col-md-6">
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop"
+              class="img-fluid rounded shadow"
+              alt="Pide tu web"
+            />
+          </div>
+          <div class="col-md-6 mt-4 mt-md-0">
+            <h2 class="fw-bold border-bottom pb-2">Pide tu web</h2>
+            <p class="text-muted mt-3">
+              ¿Necesitas digitalizar tu negocio o proyecto personal? Diseño
+              landing pages modernas y optimizadas para que tu presencia en
+              internet destaque sobre la competencia, cuidando cada detalle
+              visual y técnico.
+            </p>
+          </div>
+        </div>
+
+        <div class="row align-items-center mb-5">
+          <div class="col-md-6">
+            <img
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1000&auto=format&fit=crop"
+              class="img-fluid rounded shadow"
+              alt="Contáctame"
+            />
+          </div>
+          <div class="col-md-6 mt-4 mt-md-0">
+            <h2 class="fw-bold border-bottom pb-2">Contáctame</h2>
+            <p class="text-muted mt-3">
+              Si tienes una idea en mente o simplemente quieres saludar, estoy a
+              un clic de distancia. Responderé a tu propuesta lo antes posible
+              para empezar a trabajar juntos y hacer realidad ese proyecto.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4 text-center">
+      <div class="container">
+        <p class="mb-0">&copy; 2026 Mario Minuesa - FullStack Developer</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
