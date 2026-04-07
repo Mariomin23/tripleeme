@@ -1,0 +1,4 @@
+.img-demo {
+    height: 250px;
+    object-fit: cover; /* Esto hace que la imagen se recorte para llenar el espacio sin deformarse */
+}
