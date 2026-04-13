@@ -1,168 +1,947 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TripleEme | Tu Web de Boda Ideal y Asequible</title>
-    
-    <meta property="og:title" content="TripleEme | Webs de Boda Elegantes y Asequibles">
-    <meta property="og:description" content="Creamos la web perfecta para tu boda sin costes excesivos. ¡Haz que tu gran día sea inolvidable!">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1000">
-    <meta property="og:url" content="https://tripleeme.es">
-    <meta property="og:type" content="website">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="description" content="TripleEme — Agencia boutique de diseño web y desarrollo de apps en Madrid. Webs para empresas, autónomos y bodas desde 300€. Expertos en diseño web económico y apps móviles." />
+  <meta name="keywords" content="diseño web Madrid, diseño web económico para autónomos, especialistas en webs para bodas, diseño de apps móviles, agencia web Madrid" />
+  <meta name="author" content="TripleEme" />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
-    <link rel="stylesheet" href="style.css">
+  <!-- Open Graph -->
+  <meta property="og:title" content="TripleEme | Agencia de Diseño Web & Apps en Madrid" />
+  <meta property="og:description" content="Diseñamos webs y apps de alto impacto para empresas, autónomos y bodas. Desde 300€. Contáctanos hoy." />
+  <meta property="og:image" content="img/og-image.webp" />
+  <meta property="og:url" content="https://tripleeme.es" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TripleEme | Diseño Web & Apps Madrid" />
+  <meta name="twitter:description" content="Webs de lujo técnico desde 300€. Agencia boutique en Madrid." />
+
+  <title>TripleEme | Agencia Boutique de Diseño Web & Apps en Madrid</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "TripleEme",
+    "description": "Agencia boutique de diseño web y desarrollo de apps móviles en Madrid",
+    "url": "https://tripleeme.es",
+    "telephone": "+34643917030",
+    "email": "hola@tripleeme.es",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Madrid",
+      "addressCountry": "ES"
+    },
+    "priceRange": "€€",
+    "serviceArea": {"@type": "City", "name": "Madrid"},
+    "sameAs": [
+      "https://instagram.com/tripleeme",
+      "https://linkedin.com/company/tripleeme"
+    ]
+  }
+  </script>
 </head>
 <body>
 
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-            <div class="container">
-                <a class="navbar-brand fw-bold" href="#">TripleEme.es</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navPrincipal">
-                    <span class="navbar-toggler-icon"></span>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" aria-label="Navegación principal">
+    <div class="container-xl">
+      <a class="navbar-brand" href="#hero" id="nav-logo">
+        <span class="brand-triple">Triple</span><span class="brand-eme">Eme</span>
+      </a>
+      <button class="nav-menu-toggle ms-auto" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="fullscreenMenu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- FULLSCREEN OVERLAY MENU -->
+  <div class="fullscreen-menu" id="fullscreenMenu" aria-hidden="true">
+    <div class="fullscreen-menu__inner">
+      <nav class="fullscreen-nav" aria-label="Menú principal">
+        <ul>
+          <li><a href="#hero" class="menu-link" data-close-menu>Inicio</a></li>
+          <li><a href="#servicios" class="menu-link" data-close-menu>Servicios</a></li>
+          <li><a href="#portfolio" class="menu-link" data-close-menu>Portfolio</a></li>
+          <li><a href="#pricing" class="menu-link" data-close-menu>Precios</a></li>
+          <li><a href="#proceso" class="menu-link" data-close-menu>Proceso</a></li>
+          <li><a href="#contacto" class="menu-link" data-close-menu>Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="fullscreen-menu__contact">
+        <a href="mailto:hola@tripleeme.es">hola@tripleeme.es</a>
+        <a href="tel:+34643917030">643 917 030</a>
+      </div>
+      <div class="fullscreen-menu__socials">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section" id="hero" aria-label="Sección principal">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-orb hero-orb--1"></div>
+    <div class="hero-orb hero-orb--2"></div>
+    <div class="hero-orb hero-orb--3"></div>
+
+    <div class="container-xl hero-content">
+      <div class="hero-eyebrow" data-aos="fade-down" data-aos-duration="800">
+        <span class="dot"></span> Agencia Boutique · Madrid
+      </div>
+      <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+        Diseñamos webs para
+        <span class="hero-typewriter" id="typewriterText">Empresas</span>
+      </h1>
+      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+        Creamos presencias digitales de alto impacto que convierten visitantes en clientes.<br/>
+        Código limpio, diseño premium, resultados reales.
+      </p>
+      <div class="hero-cta-group" data-aos="fade-up" data-aos-delay="350">
+        <a href="#contacto" class="btn-primary-glow magnetic-btn" id="hero-cta-presupuesto">
+          <span>Solicitar Presupuesto</span>
+          <i class="fas fa-arrow-right ms-2"></i>
+        </a>
+        <a href="#portfolio" class="btn-ghost magnetic-btn" id="hero-cta-portfolio">
+          <span>Ver Portfolio</span>
+        </a>
+      </div>
+      <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
+        <div class="stat">
+          <span class="stat-num">+50</span>
+          <span class="stat-label">Proyectos</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">98%</span>
+          <span class="stat-label">Satisfacción</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">5★</span>
+          <span class="stat-label">Google</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- SVG DIVIDER 1 -->
+  <div class="svg-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--bg-2)" />
+    </svg>
+  </div>
+
+  <!-- SERVICIOS SECTION -->
+  <section class="section-dark" id="servicios" aria-label="Servicios">
+    <div class="container-xl">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Lo que hacemos</span>
+        <h2 class="section-title">Servicios <span class="text-accent">Premium</span></h2>
+        <p class="section-subtitle">Tecnología de vanguardia al servicio de tu negocio</p>
+      </div>
+
+      <div class="row g-4 mt-4">
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="service-card magnetic-card">
+            <div class="service-card__icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h3>Diseño Web</h3>
+            <p>Webs con diseño exclusivo para <strong>empresas, autónomos y bodas</strong>. Desde landing pages hasta e-commerce completo. Optimizadas para conversión y SEO.</p>
+            <ul class="service-list">
+              <li><i class="fas fa-check"></i> Responsive Mobile First</li>
+              <li><i class="fas fa-check"></i> Velocidad +90 PageSpeed</li>
+              <li><i class="fas fa-check"></i> SEO Local incluido</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-card magnetic-card">
+            <div class="service-card__icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3>Apps Móviles</h3>
+            <p>Desarrollo de <strong>aplicaciones móviles</strong> iOS y Android nativas o PWA. Diseño UX intuitivo y alto rendimiento para tus usuarios.</p>
+            <ul class="service-list">
+              <li><i class="fas fa-check"></i> iOS & Android</li>
+              <li><i class="fas fa-check"></i> Progressive Web Apps</li>
+              <li><i class="fas fa-check"></i> UX investigado</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-card magnetic-card">
+            <div class="service-card__icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>SEO & Performance</h3>
+            <p>Posicionamiento en Google con <strong>SEO técnico y local</strong> para Madrid. Auditorías de rendimiento y optimización continua de tu presencia digital.</p>
+            <ul class="service-list">
+              <li><i class="fas fa-check"></i> SEO técnico & local</li>
+              <li><i class="fas fa-check"></i> Core Web Vitals</li>
+              <li><i class="fas fa-check"></i> Reportes mensuales</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="service-card magnetic-card">
+            <div class="service-card__icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3>Identidad Visual</h3>
+            <p>Creación de <strong>marca desde cero</strong>: logotipo, paleta de color, tipografía y guía de estilos. Tu marca, coherente en todos los canales.</p>
+            <ul class="service-list">
+              <li><i class="fas fa-check"></i> Logo & branding</li>
+              <li><i class="fas fa-check"></i> Brand guidelines</li>
+              <li><i class="fas fa-check"></i> Assets digitales</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-card magnetic-card">
+            <div class="service-card__icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h3>E-commerce</h3>
+            <p>Tiendas online con <strong>WooCommerce, Shopify o custom</strong>. Procesos de compra optimizados para maximizar la tasa de conversión.</p>
+            <ul class="service-list">
+              <li><i class="fas fa-check"></i> Pasarelas de pago</li>
+              <li><i class="fas fa-check"></i> Gestión de stock</li>
+              <li><i class="fas fa-check"></i> Carrito optimizado</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-card magnetic-card">
+            <div class="service-card__icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Mantenimiento</h3>
+            <p><strong>Mantenimiento mensual</strong> de tu web: actualizaciones de seguridad, backups, soporte técnico y mejoras continuas para que nunca pares.</p>
+            <ul class="service-list">
+              <li><i class="fas fa-check"></i> Soporte prioritario</li>
+              <li><i class="fas fa-check"></i> Backups diarios</li>
+              <li><i class="fas fa-check"></i> Actualizaciones</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SVG DIVIDER 2 -->
+  <div class="svg-divider svg-divider--flip" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C360,0 1080,80 1440,40 L1440,80 L0,80 Z" fill="var(--bg-1)" />
+    </svg>
+  </div>
+
+  <!-- PORTFOLIO SECTION -->
+  <section class="section-darker" id="portfolio" aria-label="Portfolio de proyectos">
+    <div class="container-xl">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Nuestro trabajo</span>
+        <h2 class="section-title">Portfolio <span class="text-accent">Dinámico</span></h2>
+        <p class="section-subtitle">Proyectos reales, impacto real</p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="portfolio-filters" data-aos="fade-up" data-aos-delay="100" role="group" aria-label="Filtros de portfolio">
+        <button class="filter-btn active" data-filter="all" id="filter-all">Todos</button>
+        <button class="filter-btn" data-filter="empresas" id="filter-empresas">Empresas</button>
+        <button class="filter-btn" data-filter="autonomos" id="filter-autonomos">Autónomos</button>
+        <button class="filter-btn" data-filter="bodas" id="filter-bodas">Bodas</button>
+      </div>
+
+      <!-- Swiper for Mobile -->
+      <div class="swiper portfolio-swiper d-md-none mt-4" aria-label="Portfolio móvil">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="portfolio-card" data-category="empresas">
+              <div class="portfolio-card__img">
+                <img src="img/portfolio-1.webp" alt="Diseño web para empresa de tecnología Madrid" loading="lazy" width="600" height="400" />
+                <div class="portfolio-card__overlay">
+                  <span class="portfolio-tag">Empresa</span>
+                  <h4>TechFlow Solutions</h4>
+                  <p>Web corporativa + App PWA</p>
+                  <a href="#contacto" class="portfolio-link" aria-label="Ver proyecto TechFlow">Ver proyecto <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="portfolio-card" data-category="bodas">
+              <div class="portfolio-card__img">
+                <img src="img/portfolio-2.webp" alt="Especialistas en webs para bodas en Madrid" loading="lazy" width="600" height="400" />
+                <div class="portfolio-card__overlay">
+                  <span class="portfolio-tag">Bodas</span>
+                  <h4>Elena & Carlos</h4>
+                  <p>Web de boda interactiva</p>
+                  <a href="#contacto" class="portfolio-link" aria-label="Ver proyecto boda">Ver proyecto <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="portfolio-card" data-category="autonomos">
+              <div class="portfolio-card__img">
+                <img src="img/portfolio-3.webp" alt="Diseño web económico para autónomos en Madrid" loading="lazy" width="600" height="400" />
+                <div class="portfolio-card__overlay">
+                  <span class="portfolio-tag">Autónomo</span>
+                  <h4>Laura García — Psicóloga</h4>
+                  <p>Landing page + SEO local</p>
+                  <a href="#contacto" class="portfolio-link" aria-label="Ver proyecto Laura García">Ver proyecto <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="portfolio-card" data-category="empresas">
+              <div class="portfolio-card__img">
+                <img src="img/portfolio-4.webp" alt="E-commerce diseño web Madrid empresa" loading="lazy" width="600" height="400" />
+                <div class="portfolio-card__overlay">
+                  <span class="portfolio-tag">Empresa</span>
+                  <h4>ModaMad Store</h4>
+                  <p>E-commerce Shopify custom</p>
+                  <a href="#contacto" class="portfolio-link" aria-label="Ver proyecto ModaMad">Ver proyecto <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="portfolio-card" data-category="bodas">
+              <div class="portfolio-card__img">
+                <img src="img/portfolio-5.webp" alt="Web para bodas Madrid diseño exclusivo" loading="lazy" width="600" height="400" />
+                <div class="portfolio-card__overlay">
+                  <span class="portfolio-tag">Bodas</span>
+                  <h4>Villa Rosa Events</h4>
+                  <p>Web + RSVP online</p>
+                  <a href="#contacto" class="portfolio-link" aria-label="Ver proyecto Villa Rosa">Ver proyecto <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="portfolio-card" data-category="autonomos">
+              <div class="portfolio-card__img">
+                <img src="img/portfolio-6.webp" alt="Diseño web autónomo fotógrafo Madrid" loading="lazy" width="600" height="400" />
+                <div class="portfolio-card__overlay">
+                  <span class="portfolio-tag">Autónomo</span>
+                  <h4>Javier Ruiz — Foto</h4>
+                  <p>Portfolio fotográfico</p>
+                  <a href="#contacto" class="portfolio-link" aria-label="Ver proyecto Javier Ruiz">Ver proyecto <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination" aria-label="Páginas del portfolio"></div>
+      </div>
+
+      <!-- Grid for Desktop -->
+      <div class="portfolio-grid d-none d-md-grid mt-4" id="portfolioGrid" aria-label="Grid de portfolio">
+        <div class="portfolio-card" data-category="empresas" data-aos="fade-up" data-aos-delay="0">
+          <div class="portfolio-card__img">
+            <img src="img/portfolio-1.webp" alt="Diseño web para empresa de tecnología Madrid" loading="lazy" width="600" height="400" />
+            <div class="portfolio-card__overlay">
+              <span class="portfolio-tag">Empresa</span>
+              <h4>TechFlow Solutions</h4>
+              <p>Web corporativa + App PWA</p>
+              <a href="#contacto" class="portfolio-link">Ver proyecto <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card" data-category="bodas" data-aos="fade-up" data-aos-delay="100">
+          <div class="portfolio-card__img">
+            <img src="img/portfolio-2.webp" alt="Especialistas en webs para bodas en Madrid" loading="lazy" width="600" height="400" />
+            <div class="portfolio-card__overlay">
+              <span class="portfolio-tag">Bodas</span>
+              <h4>Elena & Carlos</h4>
+              <p>Web de boda interactiva</p>
+              <a href="#contacto" class="portfolio-link">Ver proyecto <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card" data-category="autonomos" data-aos="fade-up" data-aos-delay="200">
+          <div class="portfolio-card__img">
+            <img src="img/portfolio-3.webp" alt="Diseño web económico para autónomos en Madrid" loading="lazy" width="600" height="400" />
+            <div class="portfolio-card__overlay">
+              <span class="portfolio-tag">Autónomo</span>
+              <h4>Laura García — Psicóloga</h4>
+              <p>Landing page + SEO local</p>
+              <a href="#contacto" class="portfolio-link">Ver proyecto <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card" data-category="empresas" data-aos="fade-up" data-aos-delay="0">
+          <div class="portfolio-card__img">
+            <img src="img/portfolio-4.webp" alt="E-commerce diseño web Madrid empresa" loading="lazy" width="600" height="400" />
+            <div class="portfolio-card__overlay">
+              <span class="portfolio-tag">Empresa</span>
+              <h4>ModaMad Store</h4>
+              <p>E-commerce Shopify custom</p>
+              <a href="#contacto" class="portfolio-link">Ver proyecto <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card" data-category="bodas" data-aos="fade-up" data-aos-delay="100">
+          <div class="portfolio-card__img">
+            <img src="img/portfolio-5.webp" alt="Web para bodas Madrid diseño exclusivo" loading="lazy" width="600" height="400" />
+            <div class="portfolio-card__overlay">
+              <span class="portfolio-tag">Bodas</span>
+              <h4>Villa Rosa Events</h4>
+              <p>Web + RSVP online</p>
+              <a href="#contacto" class="portfolio-link">Ver proyecto <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card" data-category="autonomos" data-aos="fade-up" data-aos-delay="200">
+          <div class="portfolio-card__img">
+            <img src="img/portfolio-6.webp" alt="Diseño web autónomo fotógrafo Madrid" loading="lazy" width="600" height="400" />
+            <div class="portfolio-card__overlay">
+              <span class="portfolio-tag">Autónomo</span>
+              <h4>Javier Ruiz — Foto</h4>
+              <p>Portfolio fotográfico</p>
+              <a href="#contacto" class="portfolio-link">Ver proyecto <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SVG DIVIDER 3 -->
+  <div class="svg-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,60 Q720,0 1440,60 L1440,80 L0,80 Z" fill="var(--bg-2)" />
+    </svg>
+  </div>
+
+  <!-- PRICING SECTION -->
+  <section class="section-dark" id="pricing" aria-label="Precios y planes">
+    <div class="container-xl">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Transparencia total</span>
+        <h2 class="section-title">Precios <span class="text-accent">Claros</span></h2>
+        <p class="section-subtitle">Sin sorpresas. Sin letra pequeña.</p>
+      </div>
+
+
+
+      <div class="row g-4 mt-4 justify-content-center">
+        <!-- Plan Base -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="pricing-card glass-card">
+            <div class="pricing-card__header">
+              <div class="pricing-icon"><i class="fas fa-rocket"></i></div>
+              <h3 class="pricing-card__name">Web Base</h3>
+              <div class="pricing-card__price" data-price-once="300€" data-price-sub="25€/mes">
+                <span class="price-amount">300€</span>
+                <span class="price-period once-label">pago único</span>
+                <span class="price-period sub-label d-none">al mes</span>
+              </div>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> Diseño personalizado</li>
+              <li><i class="fas fa-check"></i> Hasta 5 secciones</li>
+              <li><i class="fas fa-check"></i> Responsive Mobile First</li>
+              <li><i class="fas fa-check"></i> SEO básico incluido</li>
+              <li><i class="fas fa-check"></i> Formulario de contacto</li>
+              <li class="disabled"><i class="fas fa-times"></i> Mantenimiento</li>
+              <li class="disabled"><i class="fas fa-times"></i> Hosting & email</li>
+            </ul>
+            <a href="#contacto" class="btn-pricing" id="pricing-base-cta">Empezar ahora</a>
+          </div>
+        </div>
+
+        <!-- Plan Mantenimiento (Featured) -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="pricing-card glass-card pricing-card--featured">
+            <div class="pricing-badge">Más popular</div>
+            <div class="pricing-card__header">
+              <div class="pricing-icon"><i class="fas fa-crown"></i></div>
+              <h3 class="pricing-card__name">Mantenimiento</h3>
+              <div class="pricing-card__price" data-price-once="600€/año" data-price-sub="50€/mes">
+                <span class="price-amount">50€</span>
+                <span class="price-period once-label">/mes</span>
+                <span class="price-period sub-label d-none">/mes</span>
+              </div>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> Todo lo de Web Base</li>
+              <li><i class="fas fa-check"></i> Backups diarios</li>
+              <li><i class="fas fa-check"></i> 3 ediciones de contenido al mes</li>
+              <li class="disabled"><i class="fas fa-times"></i> Hosting & email premium</li>
+            </ul>
+            <a href="#contacto" class="btn-pricing btn-pricing--accent" id="pricing-mant-cta">El más elegido</a>
+          </div>
+        </div>
+
+        <!-- Plan Hosting + Email -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="pricing-card glass-card">
+            <div class="pricing-card__header">
+              <div class="pricing-icon"><i class="fas fa-server"></i></div>
+              <h3 class="pricing-card__name">Hosting + Email</h3>
+              <div class="pricing-card__price" data-price-once="100€/año" data-price-sub="8.33€/mes">
+                <span class="price-amount">100€</span>
+                <span class="price-period once-label">/año</span>
+                <span class="price-period sub-label d-none">equivalente</span>
+              </div>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> Hosting SSD premium</li>
+              <li><i class="fas fa-check"></i> Email profesional</li>
+              <li><i class="fas fa-check"></i> Certificado SSL</li>
+              <li><i class="fas fa-check"></i> Dominio .es incluido</li>
+              <li><i class="fas fa-check"></i> Panel de control</li>
+              <li><i class="fas fa-check"></i> Copias de seguridad</li>
+              <li><i class="fas fa-check"></i> 99.9% uptime garantizado</li>
+            </ul>
+            <a href="#contacto" class="btn-pricing" id="pricing-hosting-cta">Contratar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SVG DIVIDER 4 -->
+  <div class="svg-divider svg-divider--flip" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,20 C480,80 960,0 1440,60 L1440,80 L0,80 Z" fill="var(--bg-1)" />
+    </svg>
+  </div>
+
+  <!-- PROCESO SECTION (Timeline) -->
+  <section class="section-darker" id="proceso" aria-label="Proceso de trabajo">
+    <div class="container-xl">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Cómo trabajamos</span>
+        <h2 class="section-title">Proceso <span class="text-accent">Simple</span></h2>
+        <p class="section-subtitle">Del brief a la publicación en 4 semanas</p>
+      </div>
+
+      <div class="timeline" role="list">
+        <div class="timeline-item" data-aos="fade-right" data-aos-delay="0" role="listitem">
+          <div class="timeline-num">01</div>
+          <div class="timeline-content">
+            <div class="timeline-icon"><i class="fas fa-comments"></i></div>
+            <h3>Briefing & Estrategia</h3>
+            <p>Reunión inicial para entender tu negocio, objetivos y público objetivo. Definimos la arquitectura de información y el plan de acción.</p>
+            <span class="timeline-duration">Semana 1</span>
+          </div>
+        </div>
+        <div class="timeline-item timeline-item--right" data-aos="fade-left" data-aos-delay="100" role="listitem">
+          <div class="timeline-num">02</div>
+          <div class="timeline-content">
+            <div class="timeline-icon"><i class="fas fa-pencil-ruler"></i></div>
+            <h3>Diseño UX/UI</h3>
+            <p>Diseñamos wireframes y prototipos en alta fidelidad. Tú revisas y apruebas antes de escribir una sola línea de código.</p>
+            <span class="timeline-duration">Semana 1-2</span>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-right" data-aos-delay="200" role="listitem">
+          <div class="timeline-num">03</div>
+          <div class="timeline-content">
+            <div class="timeline-icon"><i class="fas fa-code"></i></div>
+            <h3>Desarrollo</h3>
+            <p>Desarrollo del front-end con código semántico, optimización SEO, performance y responsividad perfecta en todos los dispositivos.</p>
+            <span class="timeline-duration">Semana 2-3</span>
+          </div>
+        </div>
+        <div class="timeline-item timeline-item--right" data-aos="fade-left" data-aos-delay="300" role="listitem">
+          <div class="timeline-num">04</div>
+          <div class="timeline-content">
+            <div class="timeline-icon"><i class="fas fa-rocket"></i></div>
+            <h3>Lanzamiento</h3>
+            <p>Publicación, configuración del dominio, SSL, Google Search Console y Analytics. Tu web vive en internet y empieza a trabajar por ti.</p>
+            <span class="timeline-duration">Semana 4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SVG DIVIDER 5 -->
+  <div class="svg-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--bg-2)" />
+    </svg>
+  </div>
+
+  <!-- TESTIMONIOS SECTION -->
+  <section class="section-dark" id="testimonios" aria-label="Testimonios de clientes">
+    <div class="container-xl">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Qué dicen nuestros clientes</span>
+        <h2 class="section-title">Testimonios <span class="text-accent">Reales</span></h2>
+      </div>
+
+      <div class="swiper testimonios-swiper mt-5" data-aos="fade-up" data-aos-delay="100" aria-label="Carrusel de testimonios">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="testimonial-card glass-card">
+              <div class="testimonial-stars" aria-label="5 estrellas">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <blockquote>"TripleEme transformó mi consulta de psicología. En 3 meses triplicamos las consultas gracias a la web y el SEO local. Profesionales de verdad."</blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar">LG</div>
+                <div>
+                  <strong>Laura García</strong>
+                  <span>Psicóloga — Madrid</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testimonial-card glass-card">
+              <div class="testimonial-stars" aria-label="5 estrellas">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <blockquote>"La web de nuestra boda fue increíble. Todos los invitados alucinaron. Y el proceso fue muy sencillo gracias al equipo de TripleEme. Muy recomendables."</blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar">EC</div>
+                <div>
+                  <strong>Elena & Carlos</strong>
+                  <span>Boda — Segovia</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testimonial-card glass-card">
+              <div class="testimonial-stars" aria-label="5 estrellas">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <blockquote>"El e-commerce que nos hicieron superó todas las expectativas. El primer mes ya recuperamos la inversión. Un equipo 10 en todo."</blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar">MM</div>
+                <div>
+                  <strong>María Martínez</strong>
+                  <span>CEO — ModaMad Store</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testimonial-card glass-card">
+              <div class="testimonial-stars" aria-label="5 estrellas">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <blockquote>"Como fotógrafo necesitaba un portfolio que me diferenciara. TripleEme lo clavó. Ya recibo consultas directamente a través de la web cada semana."</blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar">JR</div>
+                <div>
+                  <strong>Javier Ruiz</strong>
+                  <span>Fotógrafo — Madrid</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination" aria-label="Páginas de testimonios"></div>
+        <div class="swiper-button-prev" aria-label="Testimonio anterior"></div>
+        <div class="swiper-button-next" aria-label="Testimonio siguiente"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÁREAS DE EXPERIENCIA / SEO LOCAL -->
+  <section class="section-seo" id="areas" aria-label="Áreas de experiencia">
+    <div class="container-xl">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <span class="section-tag">Áreas de experiencia</span>
+          <h2 class="section-title">Tu negocio en Madrid.<br/><span class="text-accent">En Google el primero.</span></h2>
+          <p class="seo-text">Somos especialistas en <strong>diseño web en Madrid</strong> con años de experiencia posicionando negocios locales en los primeros resultados de búsqueda. Nuestro enfoque combina <strong>diseño web económico para autónomos</strong>, soluciones premium para empresas y experiencias digitales únicas para bodas.</p>
+          <p class="seo-text">Si buscas <strong>diseño de apps móviles</strong> que convierta o una web que aparezca en Google cuando tus clientes te buscan, estás en el lugar correcto. Trabajamos con negocios de todos los tamaños en Madrid y toda España.</p>
+          <div class="seo-badges">
+            <span class="seo-badge"><i class="fas fa-map-marker-alt"></i> Madrid</span>
+            <span class="seo-badge"><i class="fas fa-search"></i> SEO Local</span>
+            <span class="seo-badge"><i class="fas fa-mobile-alt"></i> Apps Móviles</span>
+            <span class="seo-badge"><i class="fas fa-heart"></i> Webs Bodas</span>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+          <div class="seo-stats-grid">
+            <div class="seo-stat-card glass-card">
+              <i class="fas fa-map-marked-alt"></i>
+              <strong>Madrid</strong>
+              <span>Diseño web local</span>
+            </div>
+            <div class="seo-stat-card glass-card">
+              <i class="fas fa-mobile-alt"></i>
+              <strong>Apps</strong>
+              <span>iOS & Android</span>
+            </div>
+            <div class="seo-stat-card glass-card">
+              <i class="fas fa-heart"></i>
+              <strong>Bodas</strong>
+              <span>Webs exclusivas</span>
+            </div>
+            <div class="seo-stat-card glass-card">
+              <i class="fas fa-briefcase"></i>
+              <strong>Autónomos</strong>
+              <span>Precios accesibles</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SVG DIVIDER 6 -->
+  <div class="svg-divider svg-divider--flip" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,60 Q720,0 1440,60 L1440,80 L0,80 Z" fill="var(--bg-darker)" />
+    </svg>
+  </div>
+
+  <!-- CONTACTO SECTION -->
+  <section class="section-contact" id="contacto" aria-label="Formulario de contacto">
+    <div class="container-xl">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Hablemos</span>
+        <h2 class="section-title">¿Empezamos tu <span class="text-accent">proyecto?</span></h2>
+        <p class="section-subtitle">Cuéntanos qué necesitas. Respondemos en menos de 24h.</p>
+      </div>
+
+      <div class="row g-5 mt-2">
+        <div class="col-lg-5" data-aos="fade-right">
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:hola@tripleeme.es">hola@tripleeme.es</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <strong>Teléfono</strong>
+                <a href="tel:+34643917030">643 917 030</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+              <div>
+                <strong>WhatsApp</strong>
+                <a href="https://wa.me/34643917030?text=Hola!%20Me%20interesa%20información%20sobre%20vuestros%20servicios" target="_blank" rel="noopener">Escríbenos directo</a>
+              </div>
+            </div>
+            <div class="contact-socials">
+              <a href="#" class="social-btn" aria-label="Instagram de TripleEme"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-btn" aria-label="LinkedIn de TripleEme"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="social-btn" aria-label="Behance de TripleEme"><i class="fab fa-behance"></i></a>
+              <a href="#" class="social-btn" aria-label="Dribbble de TripleEme"><i class="fab fa-dribbble"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7" data-aos="fade-left" data-aos-delay="100">
+          <form class="contact-form glass-card" id="contactForm" novalidate aria-label="Formulario de contacto">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="contactName" class="form-label">Nombre *</label>
+                  <input type="text" id="contactName" name="nombre" class="form-control" placeholder="Tu nombre completo" required autocomplete="name" minlength="2" />
+                  <div class="form-feedback" aria-live="polite"></div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="contactEmail" class="form-label">Email *</label>
+                  <input type="email" id="contactEmail" name="email" class="form-control" placeholder="tu@email.com" required autocomplete="email" inputmode="email" />
+                  <div class="form-feedback" aria-live="polite"></div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="contactPhone" class="form-label">Teléfono</label>
+                  <input type="tel" id="contactPhone" name="telefono" class="form-control" placeholder="6XX XXX XXX" autocomplete="tel" inputmode="numeric" pattern="[6-9][0-9]{8}" />
+                  <div class="form-feedback" aria-live="polite"></div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="contactService" class="form-label">Servicio</label>
+                  <select id="contactService" name="servicio" class="form-control">
+                    <option value="">¿Qué necesitas?</option>
+                    <option value="web-empresa">Web para Empresa</option>
+                    <option value="web-autonomo">Web para Autónomo</option>
+                    <option value="web-boda">Web para Boda</option>
+                    <option value="app-movil">App Móvil</option>
+                    <option value="seo">SEO & Performance</option>
+                    <option value="mantenimiento">Mantenimiento</option>
+                    <option value="otro">Otro</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="contactMessage" class="form-label">Mensaje *</label>
+                  <textarea id="contactMessage" name="mensaje" class="form-control" rows="4" placeholder="Cuéntanos tu proyecto, necesidades y presupuesto..." required minlength="20"></textarea>
+                  <div class="form-feedback" aria-live="polite"></div>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-submit" id="contactSubmit" aria-label="Enviar formulario de contacto">
+                  <span class="btn-submit__text">Enviar Mensaje</span>
+                  <span class="btn-submit__loading" aria-hidden="true">
+                    <i class="fas fa-circle-notch fa-spin"></i> Enviando...
+                  </span>
+                  <span class="btn-submit__success" aria-hidden="true">
+                    <i class="fas fa-check"></i> ¡Enviado!
+                  </span>
+                  <i class="fas fa-paper-plane btn-submit__icon"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="navPrincipal">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#sobre-nosotros">Qué Incluye</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#demos">Demos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#precios">Precios</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-                    </ul>
-                </div>
+              </div>
             </div>
-        </nav>
-    </header>
-
-    <main id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop'); background-position: 60% center;"></div>
-            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop'); background-position: 70% center;"></div>
-            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop'); background-position: 50% center;"></div>
+          </form>
         </div>
-        
-        <div class="carousel-caption text-center text-white">
-            <div class="container">
-                <h1 class="display-1 fw-bold">Tu Boda en la Red</h1>
-                <p class="fs-3 fw-light">Diseño web elegante, funcional y a precio real.</p>
-                <a href="#sobre-nosotros" class="btn-custom mt-4">Descubrir más</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" aria-label="Pie de página">
+    <div class="footer-top">
+      <div class="container-xl">
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <a class="footer-brand" href="#hero">
+              <span class="brand-triple">Triple</span><span class="brand-eme">Eme</span>
+            </a>
+            <p class="footer-desc">Agencia boutique de diseño web y desarrollo de apps en Madrid. Lujo técnico, confianza y modernidad radical.</p>
+            <div class="footer-socials">
+              <a href="#" aria-label="Instagram de TripleEme"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn de TripleEme"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" aria-label="Behance de TripleEme"><i class="fab fa-behance"></i></a>
+              <a href="#" aria-label="Dribbble de TripleEme"><i class="fab fa-dribbble"></i></a>
             </div>
+          </div>
+          <div class="col-sm-6 col-lg-2">
+            <h4 class="footer-heading">Servicios</h4>
+            <ul class="footer-links">
+              <li><a href="#servicios">Diseño Web</a></li>
+              <li><a href="#servicios">Apps Móviles</a></li>
+              <li><a href="#servicios">SEO Madrid</a></li>
+              <li><a href="#servicios">E-commerce</a></li>
+              <li><a href="#pricing">Mantenimiento</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6 col-lg-2">
+            <h4 class="footer-heading">Empresa</h4>
+            <ul class="footer-links">
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#proceso">Proceso</a></li>
+              <li><a href="#pricing">Precios</a></li>
+              <li><a href="#testimonios">Testimonios</a></li>
+              <li><a href="#contacto">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h4 class="footer-heading">Contacto Directo</h4>
+            <ul class="footer-contact-list">
+              <li><a href="mailto:hola@tripleeme.es"><i class="fas fa-envelope"></i> hola@tripleeme.es</a></li>
+              <li><a href="tel:+34643917030"><i class="fas fa-phone"></i> 643 917 030</a></li>
+              <li><a href="https://wa.me/34643917030" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+              <li><span><i class="fas fa-map-marker-alt"></i> Madrid, España</span></li>
+            </ul>
+          </div>
         </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container-xl">
+        <p>© 2025 TripleEme. Todos los derechos reservados. · <a href="#">Política de Privacidad</a> · <a href="#">Aviso Legal</a></p>
+        <p class="footer-seo-text">Especialistas en <strong>diseño web en Madrid</strong> · <strong>Diseño web económico para autónomos</strong> · <strong>Diseño de apps móviles</strong> · <strong>Especialistas en webs para bodas</strong></p>
+      </div>
+    </div>
+  </footer>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
-    </main>
-
-    <section id="sobre-nosotros" class="py-5 bg-white">
-        <div class="container py-md-5">
-            <div class="row align-items-center">
-                <div class="col-lg-6 ps-lg-5">
-                    <div class="wedding-services text-center text-lg-start">
-                        <h2 class="section-title">Estética y utilidad</h2>
-                        <p class="lead">No solo diseñamos una invitación online; construimos el <strong>centro de operaciones</strong> de su gran día.</p>
-                        <ul class="services-list text-start d-inline-block d-lg-block">
-                            <li><strong>Información Clave:</strong> Mapas, horarios y códigos de vestimenta.</li>
-                            <li><strong>Gestión de Confirmaciones:</strong> Recepción de asistencia en tiempo real.</li>
-                            <li><strong>Logística:</strong> Recomendaciones de alojamiento y transporte.</li>
-                            <li><strong>Lista de Regalos:</strong> Enlaces directos o datos bancarios con elegancia.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-6 mt-4 mt-lg-0">
-                    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1000&auto=format&fit=crop" class="img-fluid rounded shadow-lg" alt="Diseño web">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="demos" class="py-5" style="background-color: var(--wedding-cream);">
-        <div class="container py-md-5 text-center">
-            <h2 class="section-title">Explora Nuestros Diseños</h2>
-            <p class="lead mb-5">Haz clic para ver cómo podría ser tu web.</p>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-4">
-                    <div class="card card-demo h-100">
-                        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=600&auto=format&fit=crop" class="card-img-top img-demo" alt="Demo Clásica">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Estilo Clásico</h5>
-                            <a href="#" class="btn btn-outline-dark btn-sm mt-2">Ver Demo</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card card-demo h-100">
-                        <img src="https://images.pexels.com/photos/313707/pexels-photo-313707.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top img-demo" alt="Demo Moderna">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Estilo Moderno</h5>
-                            <a href="#" class="btn btn-outline-dark btn-sm mt-2">Ver Demo</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="precios" class="py-5 bg-white">
-        <div class="container py-md-5 text-center">
-            <h2 class="section-title">Precios Transparentes</h2>
-            <p class="lead mb-5">Nuestra misión es sencilla: eliminar el sobrecoste innecesario.</p>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-5 col-lg-4">
-                    <div class="card card-price h-100 p-4">
-                        <div class="card-body">
-                            <span class="price-badge">Más Popular</span>
-                            <h3 class="fw-bold">Web Esencial</h3>
-                            <p class="text-muted">Todo lo necesario para tus invitados.</p>
-                            <div class="display-4 fw-bold my-4">300€</div>
-                            <ul class="text-start list-unstyled fs-6 mb-4">
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Adaptada a móvil y tablet</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Información del Evento</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Confirmación RSVP</li>
-                                <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Galería de Fotos</li>
-                            </ul>
-                            <a href="#contacto" class="btn btn-dark w-100">Elegir Este</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cta-section mt-5">
-                <a href="https://wa.me/34643917030" class="btn-contacto-main">¡SOLICITAR PRESUPUESTO!</a>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contacto" class="bg-dark text-white py-5 text-center">
-        <div class="container">
-            <p class="mb-4">&copy; 2026 <strong>TripleEme</strong> - Tu Web de Boda</p>
-            <div class="row justify-content-center">
-                <div class="col-md-4 mb-3">
-                    <a href="mailto:hola@tripleeme.es" class="text-white text-decoration-none">
-                        <i class="bi bi-envelope-fill d-block fs-3 mb-2"></i>
-                        hola@tripleeme.es
-                    </a>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <a href="https://wa.me/34643917030" target="_blank" class="text-white text-decoration-none">
-                        <i class="bi bi-whatsapp d-block fs-3 mb-2"></i>
-                        WhatsApp Directo
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <a href="https://wa.me/34643917030" target="_blank" class="btn-whatsapp-flotante">
-        <i class="bi bi-whatsapp"></i>
+  <!-- STICKY BOTTOM BAR (Mobile) -->
+  <div class="sticky-bottom-bar d-md-none" aria-label="Barra de acciones rápidas">
+    <a href="tel:+34643917030" class="sticky-btn sticky-btn--call" id="sticky-call" aria-label="Llamar a TripleEme">
+      <i class="fas fa-phone"></i>
+      <span>Llamar</span>
     </a>
+    <a href="https://wa.me/34643917030?text=Hola!%20Me%20interesa%20información%20sobre%20vuestros%20servicios" target="_blank" rel="noopener" class="sticky-btn sticky-btn--whatsapp" id="sticky-whatsapp" aria-label="WhatsApp TripleEme">
+      <i class="fab fa-whatsapp"></i>
+      <span>WhatsApp</span>
+    </a>
+    <a href="#contacto" class="sticky-btn sticky-btn--presupuesto" id="sticky-presupuesto" aria-label="Solicitar presupuesto">
+      <i class="fas fa-file-invoice"></i>
+      <span>Presupuesto</span>
+    </a>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- WHATSAPP FLOATING BUTTON (Desktop) -->
+  <a href="https://wa.me/34643917030?text=Hola!%20Me%20interesa%20información%20sobre%20vuestros%20servicios"
+     target="_blank" rel="noopener"
+     class="whatsapp-float d-none d-md-flex"
+     id="whatsappFloat"
+     aria-label="Contactar por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-tooltip">¡Escríbenos!</span>
+  </a>
+
+  <!-- Scripts -->
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Bootstrap JS (sin Popper si no es necesario) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="js/main.js"></script>
 </body>
 </html>
