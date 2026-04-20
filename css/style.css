@@ -57,10 +57,11 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   cursor: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 @media (max-width: 768px) {
-  body { cursor: auto; }
+  body { cursor: auto; overflow-x: hidden; }
   .cursor, .cursor-follower { display: none; }
 }
 
@@ -140,9 +141,12 @@ img {
 .section-darker,
 .section-contact,
 .section-seo {
-  padding: clamp(4rem, 8vw, 7rem) 0;
+  padding: clamp(2.5rem, 4vw, 4rem) 0;
   position: relative;
 }
+
+.pt-0 { padding-top: 0 !important; }
+.pb-0 { padding-bottom: clamp(1.5rem, 3vw, 2rem) !important; }
 
 .section-dark { background: var(--bg-2); }
 .section-darker { background: var(--bg-1); }
@@ -191,7 +195,7 @@ img {
 
 .svg-divider svg {
   width: 100%;
-  height: clamp(40px, 5vw, 80px);
+  height: clamp(25px, 3vw, 50px);
   display: block;
 }
 
@@ -463,6 +467,8 @@ img {
   position: relative;
   z-index: 2;
   max-width: 900px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hero-eyebrow {
@@ -1135,9 +1141,13 @@ img {
   display: flex;
   align-items: flex-start;
   gap: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
   padding-right: calc(50% + 2rem);
   position: relative;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
 }
 
 .timeline-item--right {
